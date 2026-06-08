@@ -1,16 +1,15 @@
 const CACHE_NAME = 'enter-connect-v1';
-const urlsToCache = [
-  '/enter-connect/',
-  '/enter-connect/index.html',
-  '/enter-connect/style.css',
-  '/enter-connect/script.js',
-  '/enter-connect/manifest.json'
-];
 
 self.addEventListener('install', function(event) {
   event.waitUntil(
     caches.open(CACHE_NAME).then(function(cache) {
-      return cache.addAll(urlsToCache);
+      return cache.addAll([
+        './',
+        './index.html',
+        './style.css',
+        './script.js',
+        './manifest.json'
+      ]);
     })
   );
 });
