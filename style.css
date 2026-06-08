@@ -166,3 +166,11 @@ input {
   color: #FAF8F4;
   border-color: #3A2E22;
 }
+#copyright {
+  font-size: 0.75rem;
+  color: #B0A090;
+  text-align: center;
+  margin-top: 3rem;
+  padding-top: 1rem;
+  border-top: 0.5px solid #C8A080;
+}
