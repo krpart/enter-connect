@@ -40,13 +40,13 @@ window.onload = function() {
   });
 
   document.getElementById('submit').addEventListener('click', function() {
-    const initials = document.getElementById('initials').value.trim();
+    const name = document.getElementById('initials').value.trim();
     const q1 = document.querySelector('.option[data-q="1"].selected');
     const q2 = document.querySelector('.option[data-q="2"].selected');
     const q3 = document.querySelector('.option[data-q="3"].selected');
 
-    if (!initials) {
-      alert('Please enter your initials.');
+    if (!name) {
+      alert('Please enter your first name.');
       return;
     }
 
@@ -56,7 +56,7 @@ window.onload = function() {
     }
 
     db.ref('visitors').push({
-      initials: initials,
+      initials: name,
       food: q1.dataset.value,
       believer: q2.dataset.value,
       childhood: q3.dataset.value
@@ -66,6 +66,17 @@ window.onload = function() {
     document.querySelectorAll('.option').forEach(btn => {
       btn.classList.remove('selected');
     });
+  });
+
+  document.getElementById('reset-btn').addEventListener('click', function() {
+    const password = prompt('Enter the reset password:');
+    if (password === 'stiramemory') {
+      if (confirm('This will delete all data. Are you sure?')) {
+        db.ref('visitors').remove();
+      }
+    } else {
+      alert('Incorrect password.');
+    }
   });
 
   function drawWeb() {
@@ -81,7 +92,7 @@ window.onload = function() {
 
     visitors.forEach((visitor, i) => {
       const angle = (i / visitors.length) * 2 * Math.PI;
-      const radius = 150;
+      const radius = Math.min(150, canvas.width / 3);
       const x = canvas.width / 2 + radius * Math.cos(angle);
       const y = 250 + radius * Math.sin(angle);
       positions.push({ x, y, visitor });
@@ -128,13 +139,3 @@ window.onload = function() {
   }
 
 };
-document.getElementById('reset-btn').addEventListener('click', function() {
-    const password = prompt('Enter the reset password:');
-    if (password === 'stiramemory') {
-      if (confirm('This will delete all data. Are you sure?')) {
-        db.ref('visitors').remove();
-      }
-    } else {
-      alert('Incorrect password.');
-    }
-  });
