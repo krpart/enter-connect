@@ -2,7 +2,8 @@
 <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css">
-
+<link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#C8854A">
 <div id="app">
 
   <div id="header">
@@ -78,5 +79,9 @@
   <p id="copyright">© Krina Patel, Ed.D. 2026. Enter*Connect is a live community web by Stir a Memory Projects. All rights reserved.</p>
 
   <script src="script.js"></script>
-
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/enter-connect/sw.js');
+  }
+</script>
 </div>
