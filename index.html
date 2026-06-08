@@ -1,0 +1,74 @@
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+
+<div id="app">
+
+  <div id="header">
+    <h1>Common&nbsp;Ground</h1>
+    <p>Enter your initials and answer three questions. Find your connections.</p>
+  </div>
+
+  <div id="initials-field" class="question">
+    <p>Your initials</p>
+    <input type="text" id="initials" maxlength="3" placeholder="e.g. J.C.">
+  </div>
+
+  <div id="question-1" class="question">
+    <p>What is your favorite comfort food?</p>
+    <div class="options">
+      <button class="option" data-q="1" data-value="Sweet">Something sweet</button>
+      <button class="option" data-q="1" data-value="Savory">Something savory</button>
+      <button class="option" data-q="1" data-value="Both">A mix of both</button>
+    </div>
+  </div>
+
+  <div id="question-2" class="question">
+    <p>Who is someone who believed in you?</p>
+    <div class="options">
+      <button class="option" data-q="2" data-value="Parent">Parent</button>
+      <button class="option" data-q="2" data-value="Grandparent">Grandparent</button>
+      <button class="option" data-q="2" data-value="Teacher">Teacher</button>
+      <button class="option" data-q="2" data-value="Friend">Friend</button>
+      <button class="option" data-q="2" data-value="Sibling">Sibling</button>
+      <button class="option" data-q="2" data-value="Mentor">Mentor</button>
+      <button class="option" data-q="2" data-value="Partner">Partner</button>
+    </div>
+  </div>
+
+  <div id="question-3" class="question">
+    <p>Where did you spend your childhood?</p>
+    <div class="options">
+      <button class="option" data-q="3" data-value="City">City</button>
+      <button class="option" data-q="3" data-value="Small town">Small town</button>
+      <button class="option" data-q="3" data-value="Rural area">Rural area</button>
+      <button class="option" data-q="3" data-value="Abroad">Abroad</button>
+    </div>
+  </div>
+
+  <button id="submit">Find my connections</button>
+
+<div id="web-container">
+  <div id="web-header">
+    <p id="session-label">Session 1 of 8</p>
+    <p id="visitor-count">0 voices in the web</p>
+  </div>
+    <div id="legend">
+      <div class="legend-item">
+        <span class="legend-line" style="background: #C8854A;"></span>
+        <span>Favorite comfort food</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-line" style="background: #4A7A5A;"></span>
+        <span>Someone who believed in you</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-line" style="background: #7A5A8A;"></span>
+        <span>Place where you spent your childhood</span>
+      </div>
+    </div>
+    <canvas id="web"></canvas>
+  </div>
+<div id="reset-container">
+    <button id="reset-btn">Reset the web</button>
+  </div>
+</div>
