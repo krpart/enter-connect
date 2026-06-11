@@ -4,11 +4,12 @@
 <link rel="stylesheet" href="style.css">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#C8854A">
+
 <div id="app">
 
   <div id="header">
-   <h1>Enter*Connect</h1>
-    <p>Enter your first name and answer three questions. Find your connections.</p>
+    <h1>Enter*Connect</h1>
+    <p>Enter your first name and answer four questions. Find your connections.</p>
   </div>
 
   <div id="initials-field" class="question">
@@ -48,6 +49,18 @@
     </div>
   </div>
 
+  <div id="question-4" class="question">
+    <p>Which art form are you drawn to?</p>
+    <div class="options">
+      <button class="option" data-q="4" data-value="Music">Music</button>
+      <button class="option" data-q="4" data-value="Visual art">Visual art</button>
+      <button class="option" data-q="4" data-value="Story">Story</button>
+      <button class="option" data-q="4" data-value="Movement">Movement</button>
+      <button class="option" data-q="4" data-value="Food">Food</button>
+      <button class="option" data-q="4" data-value="More than one">More than one</button>
+    </div>
+  </div>
+
   <button id="submit">Find my connections</button>
 
   <div id="web-container">
@@ -61,12 +74,16 @@
         <span>Favorite comfort food</span>
       </div>
       <div class="legend-item">
-        <span class="legend-line" style="background: #4A7A5A;"></span>
+        <span class="legend-line" style="background: #2D7A4F;"></span>
         <span>Someone who believed in you</span>
       </div>
       <div class="legend-item">
-        <span class="legend-line" style="background: #7A5A8A;"></span>
+        <span class="legend-line" style="background: #6B3FA0;"></span>
         <span>Place where you spent your childhood</span>
+      </div>
+      <div class="legend-item">
+        <span class="legend-line" style="background: #C41230;"></span>
+        <span>Art form you are drawn to</span>
       </div>
     </div>
     <canvas id="web"></canvas>
@@ -79,8 +96,5 @@
   <p id="copyright">© Krina Patel, Ed.D. 2026. Enter*Connect is a live community web by Stir a Memory Projects. All rights reserved.</p>
 
   <script src="script.js"></script>
-<script>
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('./sw.js');
-  }
-</script>
+
+</div>
