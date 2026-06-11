@@ -17,8 +17,9 @@ window.onload = function() {
 
   const categoryColors = {
     food: '#C8854A',
-    believer: '#4A7A5A',
-    childhood: '#7A5A8A'
+    believer: '#2D7A4F',
+    childhood: '#6B3FA0',
+    art: '#C41230'
   };
 
   db.ref('visitors').on('value', function(snapshot) {
@@ -44,14 +45,15 @@ window.onload = function() {
     const q1 = document.querySelector('.option[data-q="1"].selected');
     const q2 = document.querySelector('.option[data-q="2"].selected');
     const q3 = document.querySelector('.option[data-q="3"].selected');
+    const q4 = document.querySelector('.option[data-q="4"].selected');
 
     if (!name) {
       alert('Please enter your first name.');
       return;
     }
 
-    if (!q1 || !q2 || !q3) {
-      alert('Please answer all three questions.');
+    if (!q1 || !q2 || !q3 || !q4) {
+      alert('Please answer all four questions.');
       return;
     }
 
@@ -59,7 +61,8 @@ window.onload = function() {
       initials: name,
       food: q1.dataset.value,
       believer: q2.dataset.value,
-      childhood: q3.dataset.value
+      childhood: q3.dataset.value,
+      art: q4.dataset.value
     });
 
     document.getElementById('initials').value = '';
@@ -106,6 +109,7 @@ window.onload = function() {
         if (a.visitor.food === b.visitor.food) sharedCategories.push('food');
         if (a.visitor.believer === b.visitor.believer) sharedCategories.push('believer');
         if (a.visitor.childhood === b.visitor.childhood) sharedCategories.push('childhood');
+        if (a.visitor.art === b.visitor.art) sharedCategories.push('art');
 
         sharedCategories.forEach((category, index) => {
           const offset = (index - (sharedCategories.length - 1) / 2) * 6;
